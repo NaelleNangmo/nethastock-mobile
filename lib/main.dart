@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'app.dart';
 import 'core/theme/theme_provider.dart';
 import 'features/auth/providers/auth_provider.dart';
+import 'features/dashboard/providers/dashboard_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,8 +16,8 @@ void main() async {
       providers: [
         ChangeNotifierProvider.value(value: themeProvider),
         ChangeNotifierProvider(create: (_) => AuthProvider()),
+        ChangeNotifierProvider(create: (_) => DashboardProvider()),
         // Ajoutés module par module :
-        // ChangeNotifierProvider(create: (_) => DashboardProvider()),
         // ChangeNotifierProvider(create: (_) => ProductProvider()),
         // ChangeNotifierProvider(create: (_) => MovementProvider()),
         // ChangeNotifierProvider(create: (_) => InventoryProvider()),
