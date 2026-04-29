@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'app.dart';
 import 'core/theme/theme_provider.dart';
+import 'features/auth/providers/auth_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Charger la préférence de thème avant le premier rendu
   final themeProvider = ThemeProvider();
   await themeProvider.load();
 
@@ -14,10 +14,13 @@ void main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider.value(value: themeProvider),
-        // Les autres providers seront ajoutés module par module :
-        // ChangeNotifierProvider(create: (_) => AuthProvider()),
+        ChangeNotifierProvider(create: (_) => AuthProvider()),
+        // Ajoutés module par module :
         // ChangeNotifierProvider(create: (_) => DashboardProvider()),
-        // etc.
+        // ChangeNotifierProvider(create: (_) => ProductProvider()),
+        // ChangeNotifierProvider(create: (_) => MovementProvider()),
+        // ChangeNotifierProvider(create: (_) => InventoryProvider()),
+        // ChangeNotifierProvider(create: (_) => UserProvider()),
       ],
       child: const NethaStockApp(),
     ),
