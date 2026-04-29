@@ -46,15 +46,20 @@ class _SplashScreenState extends State<SplashScreen>
     await Future.delayed(const Duration(milliseconds: 1600));
     if (!mounted) return;
 
-    // Vérifier l'état d'authentification
-    await context.read<AuthProvider>().checkAuth();
-    if (!mounted) return;
+    try {
+      // Vérifier l'état d'authentification
+      await context.read<AuthProvider>().checkAuth();
+      if (!mounted) return;
 
-    final status = context.read<AuthProvider>().status;
-    if (status == AuthStatus.authenticated) {
-      context.go('/dashboard');
-    } else {
-      context.go('/login');
+      final status = context.read<AuthProvider>().status;
+      if (status == AuthStatus.authenticated) {
+        context.go('/dashboard');
+      } else {
+        context.go('/login');
+      }
+    } catch (e) {
+      debugPrint('[Splash] Erreur init: $e');
+      if (mounted) context.go('/login');
     }
   }
 
