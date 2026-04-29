@@ -51,21 +51,19 @@ flutter:
   fonts:
     - family: DMSans
       fonts:
-        - asset: assets/fonts/DMSans-Regular.ttf
-          weight: 400
-        - asset: assets/fonts/DMSans-Medium.ttf
-          weight: 500
-        - asset: assets/fonts/DMSans-SemiBold.ttf
-          weight: 600
-        - asset: assets/fonts/DMSans-Bold.ttf
-          weight: 700
+        - asset: assets/fonts/DM_Sans/DMSans-VariableFont_opsz,wght.ttf
+        - asset: assets/fonts/DM_Sans/DMSans-Italic-VariableFont_opsz,wght.ttf
+          style: italic
     - family: DMMono
       fonts:
-        - asset: assets/fonts/DMMono-Regular.ttf
+        - asset: assets/fonts/DM_Mono/DMMono-Regular.ttf
           weight: 400
-        - asset: assets/fonts/DMMono-Medium.ttf
+        - asset: assets/fonts/DM_Mono/DMMono-Medium.ttf
           weight: 500
+        - asset: assets/fonts/DM_Mono/DMMono-Light.ttf
+          weight: 300
 
   assets:
-    - assets/fonts/
+    - assets/fonts/DM_Sans/
+    - assets/fonts/DM_Mono/
     - assets/images/
